@@ -61,6 +61,7 @@ trait Searchable
 
         if (! config('scout.queue.queue')) {
             $models->first()->makeSearchableUsing($models)->first()->searchableUsing()->update($models);
+            
             return;
         }
 

@@ -81,7 +81,7 @@ trait Searchable
             return;
         }
 
-        if (! config('scout.queue')) {
+        if (! config('scout.queue.queue')) {
             return $models->first()->searchableUsing()->delete($models);
         }
 

@@ -59,8 +59,9 @@ trait Searchable
             return;
         }
 
-        if (! config('scout.queue')) {
-            return $models->first()->makeSearchableUsing($models)->first()->searchableUsing()->update($models);
+        if (! config('scout.queue.queue')) {
+            $models->first()->makeSearchableUsing($models)->first()->searchableUsing()->update($models);
+            return;
         }
 
         dispatch((new Scout::$makeSearchableJob($models))
